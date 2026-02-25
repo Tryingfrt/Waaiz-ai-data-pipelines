@@ -18,3 +18,33 @@ A Retrieval-Augmented Generation (RAG) tool. Users input a target URL, and the s
 * **Data Extraction:** `requests`, `BeautifulSoup4`
 * **AI Integration:** Google Generative AI SDK (Gemini Pro)
 * **Frontend UI:** Streamlit
+
+---
+
+## ⚙️ How to Run Locally
+
+### Prerequisites
+1. Ensure **Python 3.8+** is installed on your machine.
+2. Obtain a free **Google Gemini API Key** from [Google AI Studio](https://aistudio.google.com/app/apikey).
+
+### Step 1: Install Dependencies
+Open your terminal and run the following command to install the required libraries:
+`pip install requests beautifulsoup4 streamlit google-generativeai`
+
+### Step 2: Configure API Keys
+Before running the AI applications, open `app.py` and `rag_bot.py` in your code editor. Locate the API configuration line and paste your Gemini API key inside the quotes:
+`genai.configure(api_key="PASTE_YOUR_API_KEY_HERE")`
+
+### Step 3: Execute the Projects
+
+**1. Generate the Dataset (Web Scraper)**
+You must run this script first to extract the live web data and generate the `market_data.csv` file that the AI will read.
+`python scraper.py`
+
+**2. Launch the AI Resume Matcher**
+This command will spin up a local web server and open the application UI in your browser.
+`streamlit run app.py`
+
+**3. Launch the RAG Chatbot**
+This command will launch the web-based chatbot interface, ready to ingest and analyze live URLs.
+`streamlit run rag_bot.py`
